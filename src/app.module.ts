@@ -14,6 +14,7 @@ import { AppResolver } from './app.resolver';
       playground: true,
       debug: true,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+      context: ({ req, res }) => ({ req, res }),
     }),
     AuthModule.forRoot({
       // These are the connection details of the app you created on supertokens.com
