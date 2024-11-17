@@ -14,5 +14,5 @@ type User {
 }
 
 type Query {
-  getUser: [User!]!
+  getUser: User!
 }

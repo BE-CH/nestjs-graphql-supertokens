@@ -10,12 +10,12 @@ export class AppResolver {
   constructor() {}
 
   @UseGuards(new AuthGuard())
-  @Query(() => [User])
+  @Query(() => User)
   async getUser(@Session() session: SessionContainer) {
     return new User(
       session.getHandle(),
       session.getUserId(),
-      session.getAccessTokenPayload(),
+      JSON.stringify(session.getAccessTokenPayload()),
     );
   }
 }

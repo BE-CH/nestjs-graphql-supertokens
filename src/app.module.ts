@@ -26,7 +26,7 @@ import { AppResolver } from './app.resolver';
         apiDomain: 'http://localhost:3000',
         websiteDomain: 'http://localhost:3001',
         apiBasePath: '/',
-        websiteBasePath: '/',
+        websiteBasePath: '/auth',
       },
     }),
   ],

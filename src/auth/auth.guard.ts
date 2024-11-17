@@ -38,12 +38,10 @@ export class AuthGuard implements CanActivate {
       const gqlContext = GqlExecutionContext.create(context);
       const { req, res } = gqlContext.getContext();
 
-      // ! RES IS UNDEFINED
-      // ! console.log(res);
-
       // Using getSession() instead of verifySession() to avoid potential "Cannot set headers after they are sent to the client" errors,
       // as verifySession() can send responses directly in certain cases, conflicting with apollo-server's header modifications.
       const session = await Session.getSession(req, res, this.verifyOptions);
+
       req.session = session;
       return true;
     }
